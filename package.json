@@ -23,6 +23,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "rimraf": "^3.0.2",
     "ts-loader": "^8.2.0",
     "typescript": "^4.1.2",
     "wait-on": "^6.0.0",
@@ -39,7 +40,7 @@
     "dev:client": "wait-on -l tcp:3001 && react-scripts start",
     "dev:server": "concurrently -p name -c \"yellow,magenta\" -n \"webpack-server,nodemon-server\" \"yarn dev:server:webpack\" \"yarn dev:server:nodemon\"",
     "dev:server:webpack": "webpack --config webpack.config.server.js --watch",
-    "dev:server:nodemon": "rm -f build/server.js && wait-on -l build/server.js && nodemon build/server.js",
+    "dev:server:nodemon": "rimraf -f build/server.js && wait-on -l build/server.js && nodemon build/server.js",
     "build:client": "react-scripts build",
     "build:server": "webpack --config webpack.config.server.js"
   },
